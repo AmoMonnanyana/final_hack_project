@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.contrib import admin
 from . import views
-from .views import order_list, create_order, update_order_status, order_history, return_order, delete_cart, confirm_order
+from .views import order_list, create_order, update_order_status, order_history, return_order, delete_cart, confirm_order, invoice_pdf, confirmation_email, invoice_history
 from .views import invoicing, create_invoice, invoice_detail, edit_invoice, delete_invoice, mark_invoice_as_paid, add_to_cart, view_cart, delete_from_cart, increase_cart_quantity, decrease_cart_quantity, order_details
 
 
@@ -39,4 +39,7 @@ urlpatterns = [
     path('order_details', order_details, name='order_details'),
     path('delete_cart', delete_cart, name='delete_cart'),
     path('confirm_order/<int:pk>/', confirm_order, name='confirm_order'),
+    path('invoice_pdf/<int:pk>/', invoice_pdf, name='invoice_pdf'),
+    path('confirmation_email/<int:pk>/', confirmation_email, name='confirmation_email'),
+    path('invoice_history', invoice_history, name='invoice_history'),
 ]
